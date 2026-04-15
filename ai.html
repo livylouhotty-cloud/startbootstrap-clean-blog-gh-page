@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Would You Rather</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: #1a1a2e;
+      color: #f5f0e8;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #e8c87a;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      color: #a89fc2;
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+      color: #a89fc2;
+    }
+
+    select {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #a89fc2;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: Georgia, serif;
+      background-color: #16213e;
+      color: #f5f0e8;
+    }
+
+    button {
+      background-color: #e8c87a;
+      color: #1a1a2e;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: Georgia, serif;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #c9a84c;
+    }
+
+    .card {
+      margin-top: 2rem;
+      background-color: #16213e;
+      border: 1px solid #a89fc2;
+      border-radius: 10px;
+      padding: 2rem;
+      display: none;
+    }
+
+    .or {
+      font-size: 1rem;
+      color: #a89fc2;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+
+    .option {
+      background-color: #1a1a2e;
+      border: 1px solid #e8c87a;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+      color: #f5f0e8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🤔 Would You Rather</h1>
+  <p class="subtitle">Pick a category and get a random question.</p>
+
+  <label for="category">Category</label>
+  <select id="category">
+    <option value="funny">Funny</option>
+    <option value="food">Food</option>
+    <option value="travel">Travel</option>
+    <option value="superpowers">Superpowers</option>
+    <option value="lifestyle">Lifestyle</option>
+  </select>
+
+  <button onclick="getQuestion()">Generate Question</button>
+
+  <div class="card" id="card">
+    <div class="option" id="optionA"></div>
+    <div class="or">— or —</div>
+    <div class="option" id="optionB"></div>
+  </div>
+
+  <script>
+    const questions = {
+      funny: [
+        ["Only be able to speak in rhymes", "Only be able to communicate through interpretive dance"],
+        ["Sneeze every time you laugh", "Laugh every time you sneeze"],
+        ["Have a foghorn as a laugh", "Bark like a dog every time you sit down"],
+        ["Always have wet socks", "Always have something stuck in your teeth"],
+        ["Only be able to walk sideways", "Only be able to hop everywhere"],
+        ["Talk in slow motion", "Move in slow motion"],
+        ["Have hiccups for a week", "Have an itch you can never scratch for a week"]
+      ],
+      food: [
+        ["Only eat pizza forever", "Only eat tacos forever"],
+        ["Never eat dessert again", "Never eat savory food again"],
+        ["Eat a spoonful of hot sauce every morning", "Drink a cup of pickle juice every morning"],
+        ["Only drink water for the rest of your life", "Never be able to eat your favorite food again"],
+        ["Eat breakfast food for every meal", "Eat dinner food for every meal"],
+        ["Only eat things that are crunchy", "Only eat things that are soft"],
+        ["Give up coffee forever", "Give up chocolate forever"]
+      ],
+      travel: [
+        ["Travel the world but never stay somewhere longer than a week", "Never leave your home country but live comfortably"],
+        ["Always travel by boat", "Always travel by train"],
+        ["Visit every country but only for one day each", "Visit 10 countries and stay a full month in each"],
+        ["Travel to the past", "Travel to the future"],
+        ["Live in a big city abroad", "Live in a small village abroad"],
+        ["Always travel alone", "Always travel in a big group"],
+        ["Road trip across the country", "Fly around the world"]
+      ],
+      superpowers: [
+        ["Be able to fly", "Be able to turn invisible"],
+        ["Read minds", "See the future"],
+        ["Have super strength", "Have super speed"],
+        ["Be able to breathe underwater", "Be able to survive in outer space"],
+        ["Pause time", "Rewind time"],
+        ["Speak every language", "Play every instrument"],
+        ["Never need sleep", "Never need food or water"]
+      ],
+      lifestyle: [
+        ["Work from home forever", "Work in an office forever"],
+        ["Be famous but broke", "Be rich but unknown"],
+        ["Have lots of close friends", "Have one perfect best friend"],
+        ["Live in the mountains", "Live on the beach"],
+        ["Wake up at 5am every day", "Stay up until 3am every day"],
+        ["Have a job you love that pays little", "Have a job you hate that pays a lot"],
+        ["Live in the same city your whole life", "Move to a new city every three years"]
+      ]
+    };
+
+    function getQuestion() {
+      const category = document.getElementById("category").value;
+      const list = questions[category];
+      const random = list[Math.floor(Math.random() * list.length)];
+
+      document.getElementById("optionA").innerText = "Would you rather... " + random[0];
+      document.getElementById("optionB").innerText = random[1];
+      document.getElementById("card").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

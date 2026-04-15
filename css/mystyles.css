@@ -1,0 +1,52 @@
+
+
+
+body {
+  color: #f5f0e8;
+  background-color: #0d0a14;
+}
+
+h2 {
+  color: #c9a84c;
+}
+
+a {
+  color: #c9a84c;
+}
+
+
+body {
+  font-family: Georgia, serif;
+  padding-bottom: 60px;
+}
+
+
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  background-color: #16111f;
+}
+
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.alt {
+  background-color: #16111f;
+  padding: 3rem 2rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #0d0a14;
+  text-align: center;
+  width: 100%;
+}
+
+img{
+  max-width: 70%;
+  height: auto;
+}
